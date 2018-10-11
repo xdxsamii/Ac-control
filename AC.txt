@@ -1,0 +1,101 @@
+#include<stdio.h>
+#include<conio.h>
+#include<process.h>
+#include<stdlib.h>
+main()
+{
+    int a,temp =20;
+    printf("\nAir Condition \n1.---> ON.\n2.---> OFF\nPlease Enter Your Choice: ");
+    scanf("%d",&a);
+    if (a==1)
+    {
+       system("cls");
+       ondisplay(temp);
+
+    }
+    else if(a==2)
+    {
+        system("cls");
+        printf("\nBye..........");
+        exit(0);
+    }
+    else
+    {
+        printf("\n Wrong Input.");
+        main();
+    }
+
+
+    getch();
+    return 0;
+}
+
+
+int ondisplay(int temp)
+{
+    int t=temp,option;
+
+    printf("\tAC is ON.\n");
+    printf("\tTemperature : %d\n",t);
+    printf("\t1.---> Increase Temperature.\n");
+    printf("\t2.---> Decrease Temperature.\n");
+    printf("\t3.---> Power OFF.\n");
+    printf("\t Please Enter Your Choice: ");
+    scanf("%d",&option);
+    switch (option)
+    {
+    case 1:
+        system("cls");
+        increase(t);
+        break;
+    case 2:
+        system("cls");
+        decrease(t);
+        break;
+    case 3:
+        system("cls");
+        printf("\nBye");
+        exit(0);
+    default:
+        system("cls");
+        printf("Invalid Option!\n\n");
+        ondisplay(t);
+    }
+    return 0;
+}
+
+int increase(int t)
+{
+    int temp = t;
+    if(temp<=28)
+    {
+    temp=t+1;
+    ondisplay(temp);
+    }
+    else
+    {
+        printf("Highest Temperature.\n");
+        system("pause");
+        system("cls");
+        ondisplay(29);
+    }
+    return 0;
+}
+
+int decrease(int t)
+{
+    int temp = t;
+    if(temp>=16)
+    {
+    temp=t-1;
+    ondisplay(temp);
+    }
+    else
+    {
+        printf("Lowest Temperature.\n");
+        system("pause");
+        system("cls");
+        ondisplay(15);
+    }
+    return 0;
+}
